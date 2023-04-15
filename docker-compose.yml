@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  blacklist:
+    build: ./
+    volumes:
+      - ./:/blacklist
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+    networks:
+      - net_services
+      - net_blacklist
+    depends_on:
+      - blacklist_db
+    hostname: blacklist
+  blacklist_db:
+    image: postgres:14.6
+    environment:
+      POSTGRES_DB: blacklist
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - net_blacklist
+    hostname: blacklist_db
+networks:
+  net_services:
+    driver: bridge
+  net_blacklist:
+    driver: bridge

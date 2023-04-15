@@ -1,0 +1,10 @@
+.coverage
+*.coverage
+.pytest_cache
+*.pytest_cache
+env/
+venv/
+.venv/
+*.pyo
+*.pyc
+.vscode
