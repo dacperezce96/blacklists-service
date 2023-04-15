@@ -24,7 +24,8 @@ class VistaBlackList(Resource):
                 db.session.add(nuevo_usuario)
                 db.session.commit()
                 return {
-                    "message": "Añadido correctamente a la lista negra"
+                    "message": "Añadido correctamente a la lista negra",
+                    "entidad": black_user_schema.dump(nuevo_usuario)
                 }, 201
             else:
                 return Response(status=400)
@@ -39,7 +40,8 @@ class VistaBlackUser(Resource):
             if len(usuario) > 0:
                 return {
                     "message": True,
-                    "blocked_reason": usuario[0].blocked_reason
+                    "blocked_reason": usuario[0].blocked_reason,
+                    "entidad": black_user_schema.dump(usuario[0])
                 }, 200
             else:
                 return{
