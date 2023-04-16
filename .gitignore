@@ -8,3 +8,5 @@ venv/
 *.pyo
 *.pyc
 .vscode
+deploy/
+aws-elastic-beanstalk-cli-setup/
