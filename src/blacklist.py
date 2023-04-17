@@ -8,7 +8,7 @@ app.config.from_object("src.config.Config")
 
 db.init_app(app)
 
-@app.route("/blacklists/ping")
+@app.route("/")
 def ping():
     return "pong", 200
 
